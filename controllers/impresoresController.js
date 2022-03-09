@@ -1,52 +1,54 @@
-var Usuarios = require('../models/Usuarios')
+var Impresores = require('../models/Impresores')
 module.exports = {
     // https://docs.mongodb.com/v3.0/reference/operator/query/text/
 
     //Búsqueda por KeyWord (GET)
     search: function (req, res) {
         var q = req.query.q
-        Usuarios.find({ $text: { $search: q } }, function (err, usuarios) {
+        Impresores.find({ $text: { $search: q } }, function (err, impresores) {
             if (err) return res.status(500).json({ message: 'Error en la búsqueda' })
-            return res.json(usuarios)
+            return res.json(impresores)
         })
     },
 
     //todos los elementos de la lista (GET)
     list: function (req, res) {
-        Usuarios.find(function (err, usuarios) {
-            if (err) return res.status(500).json({ message: 'Error obteniendo el usuario' })
-            return res.json(usuarios)
+        console.log(req);
+        //console.log(res);
+        Impresores.find(function (err, impresores) {
+            if (err) return res.status(500).json({ message: 'Error obteniendo el impresor' })
+            return res.json(impresores)
         })
     },
 
     //Listado toda la info en base a un id (GET)
     show: function (req, res) {
         var id = req.params.id
-        Usuarios.findOne({ _id: id }, function (err, usuario) {
-            if (err) return res.status(500).json({ message: 'Se ha producido un error al obtener el usuario' })
-            if (!usuario) return res.status(404).json({ message: 'No tenemos este usuario' })
-            return res.json(usuario)
+        Impresores.findOne({ _id: id }, function (err, impresor) {
+            if (err) return res.status(500).json({ message: 'Se ha producido un error al obtener el impresor' })
+            if (!impresor) return res.status(404).json({ message: 'No tenemos este impresor' })
+            return res.json(impresor)
         })
     },
 
     //Insertar elemento en la BBDD (POST)
     create: function (req, res) {
-        var usuario = new Usuarios(req.body)
-        usuario.save(function (err, usuario) {
+        var impresor = new Impresores(req.body)
+        impresor.save(function (err, impresor) {
             if (err) return res.status(500).json({
-                message: 'Error al guardar el usuario',
+                message: 'Error al guardar el impresor',
                 error: err
             })
             return res.status(201).json({
                 message: 'saved',
-                _id: usuario._id
+                _id: impresor._id
             })
         })
     },
 
     //Actualizar elemento en la BBDD (PUT)
     update: function (req, res) {
-        Usuarios.findOneAndUpdate({ id: req.params.id }, req.body, { new: true })
+        Impresores.findOneAndUpdate({ id: req.params.id }, req.body, { new: true })
             .then((nuevoUsuario) => {
                 nuevoUsuario.save()
                     .then((saved) => res.json(nuevoUsuario))
@@ -59,9 +61,9 @@ module.exports = {
     //Borramos un elemento de la tabla en base a su ID. (DELETE)
     remove: async function (req, res) {
         var id = req.params.id
-        await Usuarios.findByIdAndRemove(id, function (err, usuario) {
-            if (err) return res.json(500, { message: 'No hemos encontrado la usuario' })
-            return res.json(usuario)
+        await Impresores.findByIdAndRemove(id, function (err, impresor) {
+            if (err) return res.json(500, { message: 'No hemos encontrado la impresor' })
+            return res.json(impresor)
         })
     }
 }
