@@ -1,0 +1,35 @@
+[
+	{
+		"nombre":"Alejandro",
+		"apellido1":"Alba",
+		"apellido2":"Carretón",
+		"telefono":"961231212",
+		"email":"cem20601@gmail.com",
+		"direccion":"Calle falsa 123",
+		"usuario":"aalbacar",
+		"password":"xxxxx"
+	},
+	{
+		"nombre":"Sandra",
+		"apellido1":"Burguet",
+		"apellido2":"Guijarro",
+		"telefono":"961345432",
+		"email":"sandraburguetg@gmail.com",
+		"direccion":"Calle falsa 123",
+		"usuario":"sburgui",
+		"password":"xxxxx"
+	},
+	{
+		"nombre":"Alma",
+		"apellido1":"Alba",
+		"apellido2":"Buruget",
+		"telefono":"962125678",
+		"email":"almaalbaburguet@gmail.com",
+		"direccion":"Calle falsa 123",
+		"usuario":"almalba",
+		"password":"xxxxx"
+	},
+
+
+]
+

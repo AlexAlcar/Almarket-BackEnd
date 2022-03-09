@@ -1,0 +1,32 @@
+[
+	{
+		"id_usuario":"6227983627026b3d45699317",
+		"id_impresor":"6227b8b927026b3d4569931e",
+		"descripcion":"descripcion pedido 1",
+		"cantidad":"10",
+		"material":"PLA",
+		"fecha_entrega":"",
+		"estado":"iniciado",
+		"color":"Azul"
+	},
+	{
+		"id_usuario":"6227983627026b3d45699317",
+		"id_impresor":"6227b8b927026b3d4569931e",
+		"descripcion":"descripcion pedido 2",
+		"cantidad":"80",
+		"material":"PETG",
+		"fecha_entrega":"01/05/2022",
+		"estado":"iniciado",
+		"color":"Azul"
+	},
+	{
+		"id_usuario":"6227983627026b3d45699317",
+		"id_impresor":"6227b8b927026b3d4569931e",
+		"descripcion":"descripcion pedido 3",
+		"cantidad":"7",
+		"material":"ABS",
+		"fecha_entrega":"30/04/2022",
+		"estado":"iniciado",
+		"color":"Azul"
+	}
+]

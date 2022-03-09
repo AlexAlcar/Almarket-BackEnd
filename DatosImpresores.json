@@ -1,0 +1,39 @@
+[
+	{
+		"nombre":"Luis",
+		"apellido1":"Escalante",
+		"apellido2":"Ruiz",
+		"telefono":"961231212",
+		"email":"luisescalante@gmail.com",
+		"impresoras":"2",
+		"materia1es":["PLA", "PETG"],
+		"valoraciones":"2",
+		"puntuacion":"1",
+		"usuario":"almalba",
+		"password":"xxxxx"
+	},	{
+		"nombre":"Adrian",
+		"apellido1":"Nuñez",
+		"apellido2":"Pedroche",
+		"telefono":"961345432",
+		"email":"anunezpe@gmail.com",
+		"impresoras":"2",
+		"materia1es":["Flexible"],
+		"valoraciones":"8",
+		"puntuacion":"3",
+		"usuario":"almalba",
+		"password":"xxxxx"
+	},	{
+		"nombre":"Jesus",
+		"apellido1":"Santamaria",
+		"apellido2":"Buruget",
+		"telefono":"966966988",
+		"email":"jesusasantar@gmail.com",
+		"impresoras":"2",
+		"materia1es":["PLA", "PETG", "FILAFLEX"],
+		"valoraciones":"14",
+		"puntuacion":"4",
+		"usuario":"almalba",
+		"password":"xxxxx"
+	}
+]
