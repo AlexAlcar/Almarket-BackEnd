@@ -1,6 +1,6 @@
 //incluimos Mongoose y abrimos una conexión
 var mongoose = require('mongoose')
-var MONGO_URL = process.env.MONGO_URL || 'mongodb://localhost/web'
+var MONGO_URL = process.env.MONGO_URL || 'mongodb://localhost/almarket'
 mongoose.connect(MONGO_URL)
 
 mongoose.connection.on('connected', function () {

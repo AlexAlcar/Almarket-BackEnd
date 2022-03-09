@@ -1,7 +1,7 @@
 var router = require('express').Router()
-var cervezas = require('./cervezas')
+var usuarios = require('./usuarios')
 
-router.use('/cervezas', cervezas)
+router.use('/usuarios', usuarios)
 
 router.get('/', function (req, res) {
   res.status(200).json({ message: 'Estás conectado a nuestra API' })
