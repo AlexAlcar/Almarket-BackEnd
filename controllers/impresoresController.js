@@ -1,4 +1,4 @@
-var Impresores = require('../models/Impresores')
+var Impresores = require('../Models/Impresores')
 module.exports = {
     // https://docs.mongodb.com/v3.0/reference/operator/query/text/
 
@@ -13,8 +13,6 @@ module.exports = {
 
     //todos los elementos de la lista (GET)
     list: function (req, res) {
-        console.log(req);
-        //console.log(res);
         Impresores.find(function (err, impresores) {
             if (err) return res.status(500).json({ message: 'Error obteniendo el impresor' })
             return res.json(impresores)

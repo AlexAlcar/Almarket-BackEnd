@@ -2,7 +2,7 @@ var mongoose = require('mongoose')
 var Schema = mongoose.Schema
 
 
-var impresorSchema = new Schema({
+var impresoresSchema = new Schema({
   nombre: String,
   apellido1: String,
   apellido2: String,
@@ -13,9 +13,9 @@ var impresorSchema = new Schema({
   valoraciones: String,
   puntuacion: String,
   usuario: String,
-  password: String
+  password: String,
 },{versionKey: false}
   );
 
-var Impresor = mongoose.model('Impresor', impresorSchema);
-module.exports = Impresor;
+var kk = mongoose.model('Impresores', impresoresSchema);
+module.exports = kk;
