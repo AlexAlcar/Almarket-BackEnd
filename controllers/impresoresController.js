@@ -60,7 +60,7 @@ module.exports = {
     remove: async function (req, res) {
         var id = req.params.id
         await Impresores.findByIdAndRemove(id, function (err, impresor) {
-            if (err) return res.json(500, { message: 'No hemos encontrado la impresor' })
+            if (err) return res.json(500, { message: 'No hemos encontrado el impresor' })
             return res.json(impresor)
         })
     }
