@@ -19,4 +19,7 @@ router.put('/:id', function (req, res) {
 router.delete('/:id', function (req, res) {
   usuariosController.remove(req, res)
 })
+router.post('/login', function (req, res) {
+  usuariosController.login(req, res)
+})
 module.exports = router

@@ -63,5 +63,27 @@ module.exports = {
             if (err) return res.json(500, { message: 'No hemos encontrado la usuario' })
             return res.json(usuario)
         })
+    },
+
+
+
+    //Chequeamos si hay usuario con ese password
+    login: function (req, res) {
+        var body = req.body;
+        Usuarios.findOne({ usuario: body.usuario }, function (err, usuario) {
+            //console.log(body)
+            //console.log("Encontrado: "+usuario.usuario+" "+usuario.password)
+            //if (!usuario) return res.json('El usuario no existe');
+
+            if (!usuario) return res.json(false);
+            if (err) return res.status(500).json(false)
+
+            if (usuario.password == body.password)
+                return res.json(true)
+            else return res.json(false)
+
+            /*if(usuario.password==body.password)return "ok";
+            else return "nok";*/
+        })
     }
 }
