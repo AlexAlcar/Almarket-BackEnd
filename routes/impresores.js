@@ -19,4 +19,7 @@ router.put('/:id', function (req, res) {
 router.delete('/:id', function (req, res) {
   impresoresController.remove(req, res)
 })
+router.post('/login', function (req, res) {
+  impresoresController.login(req, res)
+})
 module.exports = router

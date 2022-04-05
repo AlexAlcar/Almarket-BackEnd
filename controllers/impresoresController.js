@@ -63,5 +63,19 @@ module.exports = {
             if (err) return res.json(500, { message: 'No hemos encontrado el impresor' })
             return res.json(impresor)
         })
+    },
+
+
+    //Chequeamos si hay usuario con ese password
+    login: function (req, res) {
+        console.log("xx")
+        var body = req.body;
+        Impresores.findOne({ usuario: body.usuario }, function (err, usuario) {
+            if (!usuario) return res.json(false);
+            if (err) return res.status(500).json(false)
+            if (usuario.password == body.password) return res.json(usuario._id)
+            else return res.json(false)
+
+        })
     }
 }
