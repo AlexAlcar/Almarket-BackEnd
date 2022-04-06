@@ -9,6 +9,12 @@ var usuarioSchema = new Schema({
   telefono: String,
   email: String,
   direccion: String,
+  perfil: String,
+  impresoras: Number,
+  tamanyo: Number,
+  precio: Number,
+  puntuacion: Number,
+  valoraciones: Number,
   usuario: String,
   password: String,
 },{versionKey: false}
