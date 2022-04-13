@@ -19,9 +19,22 @@ module.exports = {
         })
     },
 
+        //todos los pedidos de un usuario (GET)
+        getByUser: function (req, res) {
+            var id = req.params.id
+          Pedidos.find({ id_usuario : id }, function (err, usuario) {
+
+              if (err) return res.status(500).json({ message: 'Se ha producido un error al obtener los usuarios' })
+              if (!usuario) return res.json(false);
+              if (usuario.length<=0)return res.json(false)
+              return res.json(usuario)
+          })
+        },
+
     //Listado toda la info en base a un id (GET)
     show: function (req, res) {
         var id = req.params.id
+        console.log("consulta por id");
         Pedidos.findOne({ _id: id }, function (err, pedido) {
             if (err) return res.status(500).json({ message: 'Se ha producido un error al obtener el pedido' })
             if (!pedido) return res.status(404).json({ message: 'No tenemos este pedido' })

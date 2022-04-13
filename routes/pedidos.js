@@ -7,8 +7,12 @@ router.get('/search', function (req, res) {
 router.get('/', function (req, res) {
   pedidosController.list(req, res)
 })
-router.get('/:id', function (req, res) {
+router.get('/find=:id', function (req, res) {
   pedidosController.show(req, res)
+})
+router.get('/getByUser=:id', function (req, res) {
+  console.log("entroooo");
+  pedidosController.getByUser(req, res)
 })
 router.post('/', function (req, res) {
   pedidosController.create(req, res)

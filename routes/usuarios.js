@@ -7,9 +7,9 @@ router.get('/search', function (req, res) {
 router.get('/', function (req, res) {
   usuariosController.list(req, res)
 })
-/*router.get('/:id', function (req, res) {
+router.get('/find=:id', function (req, res) {
   usuariosController.show(req, res)
-})*/
+})
 router.post('/', function (req, res) {
   usuariosController.create(req, res)
 })

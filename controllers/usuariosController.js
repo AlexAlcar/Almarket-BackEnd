@@ -44,8 +44,8 @@ module.exports = {
       //Listado de usuarios de perfil "impresor" (GET)
       getImpresores: function (req, res) {
         Usuarios.find({ perfil : "impresor" }, function (err, usuario) {
-            if (err) return res.status(500).json({ message: 'Se ha producido un error al obtener los usuarios' })
-            if (!usuario) return res.status(404).json({ message: 'No se han encontrado usuarios' })
+            if (err) return res.status(500).json({ message: 'Se ha producido un error al obtener los impresores' })
+            if (!usuario) return res.status(404).json({ message: 'No se han encontrado usuarios impresores' })
             return res.json(usuario)
         })
     },
@@ -96,7 +96,7 @@ module.exports = {
             if (err) return res.status(500).json(false)
 
             if (usuario.password == body.password)
-                return res.json(usuario._id)
+                return res.json(usuario)
             else return res.json(false)
 
             /*if(usuario.password==body.password)return "ok";
