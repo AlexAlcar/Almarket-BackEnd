@@ -14,9 +14,10 @@ module.exports = {
 
     //todos los elementos de la lista (GET)
     list: function (req, res) {
-        console.log("get list");
+        //console.log("get list");
         Usuarios.find(function (err, usuarios) {
             if (err) return res.status(500).json({ message: 'Error obteniendo el usuario' })
+            console.log(new Date().toLocaleString()+ " Get User List");
             return res.json(usuarios)
         })
     },
@@ -28,6 +29,7 @@ module.exports = {
         Usuarios.findOne({ _id: id }, function (err, usuario) {
             if (err) return res.status(500).json({ message: 'Se ha producido un error al obtener el usuario' })
             if (!usuario) return res.status(404).json({ message: 'No tenemos este usuario' })
+            console.log(new Date().toLocaleString()+ " Get User Info");
             return res.json(usuario)
         })
     },
@@ -37,6 +39,7 @@ module.exports = {
         Usuarios.find({ perfil : "usuario" }, function (err, usuario) {
             if (err) return res.status(500).json({ message: 'Se ha producido un error al obtener los usuarios' })
             if (!usuario) return res.status(404).json({ message: 'No se han encontrado usuarios' })
+            console.log(new Date().toLocaleString()+ " GetUsuarios");
             return res.json(usuario)
         })
     },
@@ -46,6 +49,7 @@ module.exports = {
         Usuarios.find({ perfil : "impresor" }, function (err, usuario) {
             if (err) return res.status(500).json({ message: 'Se ha producido un error al obtener los impresores' })
             if (!usuario) return res.status(404).json({ message: 'No se han encontrado usuarios impresores' })
+            console.log(new Date().toLocaleString()+ " GetImpresores");
             return res.json(usuario)
         })
     },
@@ -57,6 +61,7 @@ module.exports = {
                 message: 'Error al guardar el usuario',
                 error: err
             })
+            console.log(new Date().toLocaleString()+ " Crear Usuario");
             return res.status(201).json({
                 message: 'saved',
                 _id: usuario._id
@@ -91,7 +96,7 @@ module.exports = {
             //console.log(body)
             //console.log("Encontrado: "+usuario.usuario+" "+usuario.password)
             //if (!usuario) return res.json('El usuario no existe');
-
+            console.log(new Date().toLocaleString().toLocaleString()+ " Login");
             if (!usuario) return res.json(false);
             if (err) return res.status(500).json(false)
 

@@ -7,6 +7,7 @@ module.exports = {
         var q = req.query.q
         Pedidos.find({ $text: { $search: q } }, function (err, pedidos) {
             if (err) return res.status(500).json({ message: 'Error en la búsqueda' })
+            console.log(new Date().toLocaleString()+" Búsqueda por KeyWord");
             return res.json(pedidos)
         })
     },
@@ -15,6 +16,7 @@ module.exports = {
     list: function (req, res) {
         Pedidos.find(function (err, pedidos) {
             if (err) return res.status(500).json({ message: 'Error obteniendo el pedido' })
+            console.log(new Date().toLocaleString()+" Get Todos los elementos");
             return res.json(pedidos)
         })
     },
@@ -25,6 +27,8 @@ module.exports = {
           Pedidos.find({ id_usuario : id }, function (err, usuario) {
 
               if (err) return res.status(500).json({ message: 'Se ha producido un error al obtener los usuarios' })
+              console.log(new Date().toLocaleString()+" GetByUser");
+
               if (!usuario) return res.json(false);
               if (usuario.length<=0)return res.json(false)
               return res.json(usuario)
@@ -38,6 +42,7 @@ module.exports = {
         Pedidos.findOne({ _id: id }, function (err, pedido) {
             if (err) return res.status(500).json({ message: 'Se ha producido un error al obtener el pedido' })
             if (!pedido) return res.status(404).json({ message: 'No tenemos este pedido' })
+            console.log(new Date().toLocaleString()+ " GetById");
             return res.json(pedido)
         })
     },
@@ -50,6 +55,7 @@ module.exports = {
                 message: 'Error al guardar el pedido',
                 error: err
             })
+            console.log(new Date().toLocaleString()+ " Creación Pedido");
             return res.status(201).json({
                 message: 'saved',
                 _id: pedido._id
@@ -74,6 +80,7 @@ module.exports = {
         var id = req.params.id
         await Pedidos.findByIdAndRemove(id, function (err, pedido) {
             if (err) return res.json(500, { message: 'No hemos encontrado la pedido' })
+            console.log(new Date().toLocaleString()+ " Borrar Pedido");
             return res.json(pedido)
         })
     }
