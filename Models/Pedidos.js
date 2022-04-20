@@ -7,10 +7,15 @@ var pedidoSchema = new Schema({
   id_impresor: String,
   descripcion: String,
   cantidad: String,
+  estado: String,
+  direccion: String,
+  precioTotal: String,
+  tamanyo: String,
   material: String,
   fecha_entrega: String,
   estado: String,
   color: String,
+  fichero:String,
 },{versionKey: false}
   );
 

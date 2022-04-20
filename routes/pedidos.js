@@ -1,4 +1,20 @@
 var router = require('express').Router()
+const multer = require('multer');
+const uuid = require('uuid');
+
+const storage = multer.diskStorage({
+  destination: 'uploads/', 
+  filename: function(req, file, cb){
+    const name = `${uuid.v4()}.stl`;
+    cb("",name);
+    return name;
+  }
+});
+
+const upload=multer({
+  storage:storage
+});
+
 var pedidosController = require('../controllers/pedidosController')
 
 router.get('/search', function (req, res) {
@@ -23,4 +39,12 @@ router.put('/:id', function (req, res) {
 router.delete('/:id', function (req, res) {
   pedidosController.remove(req, res)
 })
+
+
+router.post('/subirSTL',upload.single('stl'), function (req, res, next) {
+  
+  
+  pedidosController.subirSTL(req, res);
+})
+
 module.exports = router
