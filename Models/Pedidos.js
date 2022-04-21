@@ -5,6 +5,7 @@ var Schema = mongoose.Schema
 var pedidoSchema = new Schema({
   id_usuario: String,
   id_impresor: String,
+  nombre_impresor:String,
   descripcion: String,
   cantidad: String,
   estado: String,
