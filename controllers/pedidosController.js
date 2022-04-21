@@ -1,5 +1,5 @@
 var Pedidos = require('../models/Pedidos');
-
+const Usuario = require('../models/Usuarios');
 
 module.exports = {
     // https://docs.mongodb.com/v3.0/reference/operator/query/text/
@@ -27,13 +27,19 @@ module.exports = {
     getByUser: function (req, res) {
         var id = req.params.id
         Pedidos.find({ id_usuario: id }, function (err, usuario) {
-
             if (err) return res.status(500).json({ message: 'Se ha producido un error al obtener los usuarios' })
+            
+
             console.log(new Date().toLocaleString() + " GetByUser");
 
             if (!usuario) return res.json(false);
             if (usuario.length <= 0) return res.json(false)
-            return res.json(usuario)
+            
+            /*for (x=0; x<usuario.length;x++){
+                console.log(usuario[x].id_impresor);
+            }*/
+            
+            return res.json(usuario);
         })
     },
 
@@ -87,7 +93,7 @@ module.exports = {
     },
 
     subirSTL: function (req, res) {
-        console.log(req.file.filename);
+        //console.log(req.file.filename);
         return res.json({filename:req.file.filename});
     },
 }
