@@ -27,8 +27,10 @@ router.get('/find=:id', function (req, res) {
   pedidosController.show(req, res)
 })
 router.get('/getByUser=:id', function (req, res) {
-  //console.log("entroooo");
   pedidosController.getByUser(req, res)
+})
+router.get('/getByPrinter=:id', function (req, res) {
+  pedidosController.getByPrinter(req, res)
 })
 router.post('/', function (req, res) {
   pedidosController.create(req, res)

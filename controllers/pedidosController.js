@@ -28,17 +28,21 @@ module.exports = {
         var id = req.params.id
         Pedidos.find({ id_usuario: id }, function (err, usuario) {
             if (err) return res.status(500).json({ message: 'Se ha producido un error al obtener los usuarios' })
-            
-
             console.log(new Date().toLocaleString() + " GetByUser");
-
             if (!usuario) return res.json(false);
             if (usuario.length <= 0) return res.json(false)
-            
-            /*for (x=0; x<usuario.length;x++){
-                console.log(usuario[x].id_impresor);
-            }*/
-            
+            return res.json(usuario);
+        })
+    },
+
+//todos los pedidos de un impresor (GET)
+    getByPrinter: function (req, res) {
+        var id = req.params.id
+        Pedidos.find({ id_impresor: id }, function (err, usuario) {
+            if (err) return res.status(500).json({ message: 'Se ha producido un error al obtener los usuarios' })
+            console.log(new Date().toLocaleString() + " getByPrinter");
+            if (!usuario) return res.json(false);
+            if (usuario.length <= 0) return res.json(false)            
             return res.json(usuario);
         })
     },
