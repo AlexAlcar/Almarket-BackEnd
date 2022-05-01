@@ -33,6 +33,21 @@ module.exports = {
             return res.json(usuario)
         })
     },
+
+    //Devuelve un bool si un nombre de usuario existe
+    checkUsername: function (req, res) {
+        var us = req.params.usuario
+        
+        Usuarios.findOne({ usuario: us }, function (err, usuario) {
+            if (err) return res.status(500).json({ message: 'Se ha producido un error al obtener el usuario' })
+            if (!usuario) return res.json(false)
+            console.log(new Date().toLocaleString()+ " checkUserName");
+            return res.json(true)
+        })
+    },
+
+
+
       //Listado de usuarios de perfil "usuario" (GET)
       getUsuarios: function (req, res) {
           console.log("getusuarios");

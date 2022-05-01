@@ -28,4 +28,7 @@ router.get('/getUsuarios', function (req, res) {
 router.get('/getImpresores', function (req, res) {
   usuariosController.getImpresores(req, res)
 })
+router.get('/checkUsername=:usuario', function (req, res) {
+  usuariosController.checkUsername(req, res)
+})
 module.exports = router
