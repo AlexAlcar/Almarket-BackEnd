@@ -77,13 +77,15 @@ module.exports = {
 
     //Actualizar elemento en la BBDD (PUT)
     update: function (req, res) {
-        Pedidos.findOneAndUpdate({ id: req.params.id }, req.body, { new: true })
+        console.log("ID recibido x parametro: "+req.params.id)
+        Pedidos.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true })
             .then((nuevoPedido) => {
                 nuevoPedido.save()
                     .then((saved) => res.json(nuevoPedido))
                     .catch((err) => res.status(422).json(err))
             })
             .catch(err => res.status(422).json(err));
+            //console.log(new Date().toLocaleString() + " Actualizar Pedido nº:"+ req.params.id);
     },
 
     //Borramos un elemento de la tabla en base a su ID. (DELETE)

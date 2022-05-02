@@ -13,9 +13,15 @@ router.get('/find=:id', function (req, res) {
 router.post('/', function (req, res) {
   usuariosController.create(req, res)
 })
+router.put('/rateUser=:usuario', function (req, res) {
+  //console.log("x")
+  usuariosController.rateUser(req, res)
+})
 router.put('/:id', function (req, res) {
+  //console.log("put normal");
   usuariosController.update(req, res)
 })
+
 router.delete('/:id', function (req, res) {
   usuariosController.remove(req, res)
 })

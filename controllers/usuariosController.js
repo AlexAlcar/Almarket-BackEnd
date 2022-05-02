@@ -84,6 +84,19 @@ module.exports = {
         })
     },
 
+    //Valorar usuario (PUT)
+    rateUser: function(req,res){
+        //req.usuario y req.valoracion
+        console.log(new Date().toLocaleString().toLocaleString()+ " RateUser");
+        Usuarios.findOneAndUpdate({ usuario: req.params.usuario }, {$inc: {valoraciones:1, puntuacion:req.body.puntuacion}}, { new: true })
+            .then((nuevoUsuario) => {                
+                nuevoUsuario.save()
+                    .then((saved) => res.json(nuevoUsuario))
+                    .catch((err) => res.status(422).json(err))
+            })
+            .catch(err => res.status(422).json(err));
+    },
+
     //Actualizar elemento en la BBDD (PUT)
     update: function (req, res) {
         Usuarios.findOneAndUpdate({ id: req.params.id }, req.body, { new: true })
@@ -108,19 +121,12 @@ module.exports = {
     login: function (req, res) {
         var body = req.body;
         Usuarios.findOne({ usuario: body.usuario }, function (err, usuario) {
-            //console.log(body)
-            //console.log("Encontrado: "+usuario.usuario+" "+usuario.password)
-            //if (!usuario) return res.json('El usuario no existe');
             console.log(new Date().toLocaleString().toLocaleString()+ " Login");
             if (!usuario) return res.json(false);
             if (err) return res.status(500).json(false)
-
             if (usuario.password == body.password)
                 return res.json(usuario)
             else return res.json(false)
-
-            /*if(usuario.password==body.password)return "ok";
-            else return "nok";*/
         })
     }
 }

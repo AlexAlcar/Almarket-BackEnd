@@ -6,6 +6,7 @@ var pedidoSchema = new Schema({
   id_usuario: String,
   id_impresor: String,
   usuario_impresor:String,
+  usuario:String,
   descripcion: String,
   cantidad: String,
   estado: String,
