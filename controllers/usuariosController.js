@@ -82,11 +82,13 @@ module.exports = {
         //req.usuario y req.valoracion
         console.log(new Date().toLocaleString().toLocaleString()+ " RateUser");
         //Buscamos el pedido cuyo estado queremos actualizar:
-        Pedidos.findOneAndUpdate({id:req.body.pedido}, {new:true})
+        Pedidos.findByIdAndUpdate(req.body.pedido, {new:false})
+        
         .then((nuevoPedido)=>{
             nuevoPedido.estado="cerrado";
+            console.log("ID Pedido:",req.body.pedido);
+            console.log("Pedido encontrado: ",nuevoPedido);
             nuevoPedido.save();
-            
         });
 
         Usuarios.findOneAndUpdate({ usuario: req.params.usuario }, {$inc: {valoraciones:1, puntuacion:req.body.puntuacion}}, { new: true })
