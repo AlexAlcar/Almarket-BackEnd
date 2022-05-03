@@ -89,7 +89,7 @@ module.exports = {
         //req.usuario y req.valoracion
         console.log(new Date().toLocaleString().toLocaleString()+ " RateUser");
         Usuarios.findOneAndUpdate({ usuario: req.params.usuario }, {$inc: {valoraciones:1, puntuacion:req.body.puntuacion}}, { new: true })
-            .then((nuevoUsuario) => {                
+            .then((nuevoUsuario) => {                      
                 nuevoUsuario.save()
                     .then((saved) => res.json(nuevoUsuario))
                     .catch((err) => res.status(422).json(err))
