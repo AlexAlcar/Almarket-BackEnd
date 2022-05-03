@@ -1,4 +1,5 @@
 var Usuarios = require('../models/Usuarios')
+var Pedidos = require('../models/Pedidos')
 module.exports = {
     // https://docs.mongodb.com/v3.0/reference/operator/query/text/
 
@@ -11,7 +12,6 @@ module.exports = {
             return res.json(usuarios)
         })
     },
-
     //todos los elementos de la lista (GET)
     list: function (req, res) {
         //console.log("get list");
@@ -21,7 +21,6 @@ module.exports = {
             return res.json(usuarios)
         })
     },
-
     //Listado toda la info en base a un id (GET)
     show: function (req, res) {
         var id = req.params.id
@@ -33,7 +32,6 @@ module.exports = {
             return res.json(usuario)
         })
     },
-
     //Devuelve un bool si un nombre de usuario existe
     checkUsername: function (req, res) {
         var us = req.params.usuario
@@ -45,10 +43,7 @@ module.exports = {
             return res.json(true)
         })
     },
-
-
-
-      //Listado de usuarios de perfil "usuario" (GET)
+    //Listado de usuarios de perfil "usuario" (GET)
       getUsuarios: function (req, res) {
           console.log("getusuarios");
         Usuarios.find({ perfil : "usuario" }, function (err, usuario) {
@@ -58,8 +53,7 @@ module.exports = {
             return res.json(usuario)
         })
     },
-
-      //Listado de usuarios de perfil "impresor" (GET)
+    //Listado de usuarios de perfil "impresor" (GET)
       getImpresores: function (req, res) {
         Usuarios.find({ perfil : "impresor" }, function (err, usuario) {
             if (err) return res.status(500).json({ message: 'Se ha producido un error al obtener los impresores' })
@@ -83,11 +77,18 @@ module.exports = {
             })
         })
     },
-
     //Valorar usuario (PUT)
     rateUser: function(req,res){
         //req.usuario y req.valoracion
         console.log(new Date().toLocaleString().toLocaleString()+ " RateUser");
+        //Buscamos el pedido cuyo estado queremos actualizar:
+        Pedidos.findOneAndUpdate({id:req.body.pedido}, {new:true})
+        .then((nuevoPedido)=>{
+            nuevoPedido.estado="cerrado";
+            nuevoPedido.save();
+            
+        });
+
         Usuarios.findOneAndUpdate({ usuario: req.params.usuario }, {$inc: {valoraciones:1, puntuacion:req.body.puntuacion}}, { new: true })
             .then((nuevoUsuario) => {                      
                 nuevoUsuario.save()
