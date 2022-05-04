@@ -1,13 +1,13 @@
 [
   {
-    "nombre": "Lucy",
-    "apellido1": "Morton",
-    "apellido2": "Morales",
-    "email": "lucymorales@frosnex.com",
-    "telefono": "(848) 515-2133",
-    "perfil": "usuario",
-    "impresoras": 16,
-    "tamanyo": 19,
+    "nombre": "LucAlexy",
+    "apellido1": "Alba",
+    "apellido2": "Carreton",
+    "email": "alalca01@floridauniversitaria.com",
+    "telefono": "(96) 515-2133",
+    "perfil": "impresor",
+    "impresoras": 2,
+    "tamanyo": 12,
     "colores": [
       "blanco",
       "negro",
@@ -22,10 +22,10 @@
     ],
     "precio": 15,
     "puntuacion": 200,
-    "valoraciones": 13,
-    "direccion": "630 Lorraine Street, Gallina, Colorado, 5420",
-    "usuario": "cupidatat",
-    "password": "anim"
+    "valoraciones": 900,
+    "direccion": "Calle falsa 123",
+    "usuario": "patata",
+    "password": "patata"
   },
   {
     "nombre": "Cervantes",
@@ -80,8 +80,8 @@
     "puntuacion": 248,
     "valoraciones": 182,
     "direccion": "362 Mersereau Court, Tyhee, Maine, 8912",
-    "usuario": "deserunt",
-    "password": "elit"
+    "usuario": "patata1",
+    "password": "patata1"
   },
   {
     "nombre": "Green",
@@ -108,8 +108,8 @@
     "puntuacion": 364,
     "valoraciones": 273,
     "direccion": "461 Windsor Place, Lowell, North Carolina, 566",
-    "usuario": "esse",
-    "password": "mollit"
+    "usuario": "patata2",
+    "password": "patata2"
   },
   {
     "nombre": "Corine",
