@@ -1,15 +1,12 @@
-var router = require('express').Router()
-var usuarios = require('./usuarios')
-//var impresores = require('./impresores')
-var pedidos = require('./pedidos')
+var router = require("express").Router();
+var usuarios = require("./usuarios");
+var pedidos = require("./pedidos");
 
+router.use("/usuarios", usuarios);
+router.use("/pedidos", pedidos);
 
-router.use('/usuarios', usuarios)
-//router.use('/impresores', impresores)
-router.use('/pedidos', pedidos)
+router.get("/", function (req, res) {
+  res.status(200).json({ message: "Estás conectado a nuestra API" });
+});
 
-router.get('/', function (req, res) {
-  res.status(200).json({ message: 'Estás conectado a nuestra API' })
-})
-
-module.exports = router
+module.exports = router;
