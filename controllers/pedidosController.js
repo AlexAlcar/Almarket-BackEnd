@@ -1,6 +1,7 @@
 var Pedidos = require('../models/Pedidos');
 const Usuario = require('../models/Usuarios');
 
+
 module.exports = {
     // https://docs.mongodb.com/v3.0/reference/operator/query/text/
 
@@ -100,6 +101,7 @@ module.exports = {
 
     subirSTL: function (req, res) {
         //console.log(req.file.filename);
+        console.log(new Date().toLocaleString() + " subirSTL Filename: "+req.file.filename);
         return res.json({filename:req.file.filename});
     },
 }

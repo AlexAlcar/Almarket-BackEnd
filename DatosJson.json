@@ -21,8 +21,8 @@
       "naranja"
     ],
     "precio": 15,
-    "puntuacion": 200,
-    "valoraciones": 900,
+    "puntuacion": 0,
+    "valoraciones": 0,
     "direccion": "Calle falsa 123",
     "usuario": "patata",
     "password": "patata"
@@ -34,8 +34,8 @@
     "email": "cervantesherman@frosnex.com",
     "telefono": "(821) 466-3821",
     "perfil": "usuario",
-    "impresoras": 7,
-    "tamanyo": 19,
+    "impresoras": 0,
+    "tamanyo": 0,
     "colores": [
       "blanco",
       "negro",
@@ -77,8 +77,8 @@
       "naranja"
     ],
     "precio": 18,
-    "puntuacion": 248,
-    "valoraciones": 182,
+    "puntuacion": 0,
+    "valoraciones": 0,
     "direccion": "362 Mersereau Court, Tyhee, Maine, 8912",
     "usuario": "patata1",
     "password": "patata1"

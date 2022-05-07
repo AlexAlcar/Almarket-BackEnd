@@ -1,4 +1,4 @@
-var router = require('express').Router()
+/*var router = require('express').Router()
 var impresoresController = require('../controllers/impresoresController')
 
 router.get('/search', function (req, res) {
@@ -22,4 +22,4 @@ router.delete('/:id', function (req, res) {
 router.post('/login', function (req, res) {
   impresoresController.login(req, res)
 })
-module.exports = router
+module.exports = router*/

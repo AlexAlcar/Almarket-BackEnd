@@ -1,8 +1,8 @@
 var express = require('express') //llamamos a Express
 var app = express();
 app.use(express.json());
-
-
+const path = require('path');
+app.use('/uploads', express.static(path.join("D:\\Proyectos\\almarket-backend", 'uploads')))
 
 
 

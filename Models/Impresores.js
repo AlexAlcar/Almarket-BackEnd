@@ -1,4 +1,4 @@
-var mongoose = require('mongoose')
+/*var mongoose = require('mongoose')
 var Schema = mongoose.Schema
 
 
@@ -18,4 +18,4 @@ var impresoresSchema = new Schema({
   );
 
 var kk = mongoose.model('Impresores', impresoresSchema);
-module.exports = kk;
+module.exports = kk;*/

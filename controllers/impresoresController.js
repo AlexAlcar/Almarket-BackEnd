@@ -1,4 +1,4 @@
-var Impresores = require('../Models/Impresores')
+/*var Impresores = require('../Models/Impresores')
 module.exports = {
     // https://docs.mongodb.com/v3.0/reference/operator/query/text/
 
@@ -78,4 +78,4 @@ module.exports = {
 
         })
     }
-}
+}*/
