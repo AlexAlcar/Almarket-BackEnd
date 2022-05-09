@@ -3,7 +3,6 @@ var app = express();
 app.use(express.json());
 const path = require("path");
 app.use("/uploads", express.static(path.join("D:\\Proyectos\\almarket-backend", "uploads")));
-
 require("./db");
 
 app.use(express.json({ limit: "50mb" }));
@@ -21,8 +20,16 @@ var port = process.env.PORT || 8080; // establecemos nuestro puerto
 
 // nuestra ruta irá en http://localhost:8080/api
 var router = require("./routes");
+const { purge } = require("./routes");
+const pedidosController = require("./controllers/pedidosController");
 app.use("/api", router);
 
 //arrancamos el servidor
 app.listen(port);
 console.log("API escuchando en el puerto " + port);
+
+
+
+
+
+

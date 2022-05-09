@@ -112,4 +112,29 @@ module.exports = {
     console.log(new Date().toLocaleString() + " subirSTL Filename: " + req.file.filename);
     return res.json({ filename: req.file.filename });
   },
+
+  purge: function (req, res) {
+    const fs = require('fs');
+    const fs2 = require('fs').promises;
+    const fileNames = [];
+    fs.readdirSync('./uploads/').forEach(file => fileNames.push(file));
+    //console.log(fileNames);
+    Pedidos.find(function (err, pedidos) {
+      if (err) return res.status(500).json({ message: "Error obteniendo el pedido" });
+      console.log(new Date().toLocaleString() + " Purge");
+
+      //Tengo que borrar de Filenames los archivos que NO esten en listaFicheros
+      let ficherosPedidos = pedidos.map((e) => e.fichero);
+
+      var intersection = fileNames.filter(function (e) {
+        return ficherosPedidos.indexOf(e) == -1;
+      });
+
+      Promise.all(intersection.map(file => fs2.unlink(".//uploads//" + file)))
+        .then(() => console.log("Purgado realizado con éxito"))
+        .catch(err => console.log(err));
+
+      return res.json("Purgado realizado correctamente");
+    });
+  },
 };

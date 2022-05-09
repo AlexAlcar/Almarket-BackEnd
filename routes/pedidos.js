@@ -41,7 +41,9 @@ router.put("/:id", function (req, res) {
 router.delete("/:id", function (req, res) {
   pedidosController.remove(req, res);
 });
-
+router.get("/purge", function (req, res) {
+  pedidosController.purge(req, res);
+});
 router.post("/subirSTL", upload.single("stl"), function (req, res, next) {
   pedidosController.subirSTL(req, res);
 });
