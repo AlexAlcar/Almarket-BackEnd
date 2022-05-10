@@ -11,7 +11,7 @@ module.exports = {
       if (err) return res.status(500).json({ message: "Error en la búsqueda" });
       console.log(new Date().toLocaleString() + " Búsqueda por KeyWord");
       return res.json(pedidos);
-    });
+    }).sort({_id : -1});
   },
 
   //todos los elementos de la lista (GET)
@@ -114,6 +114,7 @@ module.exports = {
   },
 
   purge: function (req, res) {
+    //purgado de archivos del servidor
     const fs = require('fs');
     const fs2 = require('fs').promises;
     const fileNames = [];
@@ -137,4 +138,6 @@ module.exports = {
       return res.json("Purgado realizado correctamente");
     });
   },
+
+
 };
