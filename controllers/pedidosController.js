@@ -139,5 +139,22 @@ module.exports = {
     });
   },
 
-
+//tarea de purgado llamada por un setInterval
+  autoPurge: function (req, res) {
+    const fs = require('fs');
+    const fs2 = require('fs').promises;
+    const fileNames = [];
+    fs.readdirSync('./uploads/').forEach(file => fileNames.push(file));
+    Pedidos.find(function (err, pedidos) {
+      if (err) return res.status(500).json({ message: "Error obteniendo el pedido" });
+      console.log(new Date().toLocaleString() + " Purge");
+      let ficherosPedidos = pedidos.map((e) => e.fichero);
+      var intersection = fileNames.filter(function (e) {
+        return ficherosPedidos.indexOf(e) == -1;
+      });
+      Promise.all(intersection.map(file => fs2.unlink(".//uploads//" + file)))
+        .then(() => console.log("Purgado realizado con éxito"))
+        .catch(err => console.log(err));
+    });
+  },
 };
