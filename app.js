@@ -5,7 +5,7 @@ const path = require("path");
 app.use("/uploads", express.static(path.join("D:\\Proyectos\\almarket-backend", "uploads")));
 require("./db");
 
-app.use(express.json({ limit: "50mb" }));
+app.use(express.json({ limit: "100mb" }));
 
 const cors = require("cors");
 const corsOptions = {
