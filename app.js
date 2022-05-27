@@ -16,7 +16,7 @@ const corsOptions = {
 
 app.use(cors(corsOptions)); // Use this after the variable declaration
 
-var port = process.env.PORT || 8080; // establecemos nuestro puerto
+var port = 8080; // establecemos nuestro puerto
 
 // nuestra ruta irá en http://localhost:8080/api
 var router = require("./routes");
