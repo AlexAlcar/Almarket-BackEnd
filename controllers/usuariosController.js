@@ -1,6 +1,7 @@
 var Usuarios = require("../models/Usuarios");
 var Pedidos = require("../models/Pedidos");
 module.exports = {
+  // https://docs.mongodb.com/v3.0/reference/operator/query/text/
 
   //Búsqueda por KeyWord (GET)
   search: function (req, res) {
