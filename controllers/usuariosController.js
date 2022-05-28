@@ -116,7 +116,7 @@ module.exports = {
   //Actualizar elemento en la BBDD (PUT)
   update: function (req, res) {
     console.log(new Date().toLocaleString().toLocaleString() + " Put: ", req.body);
-    Usuarios.findOneAndUpdate({ id: req.params.id }, req.body, { new: true })
+    Usuarios.findOneAndUpdate({ _id: req.body.id }, req.body, { new: true })
       .then((nuevoUsuario) => {
         nuevoUsuario
           .save()
