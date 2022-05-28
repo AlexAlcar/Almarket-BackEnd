@@ -1,6 +1,9 @@
 //incluimos Mongoose y abrimos una conexión
 var mongoose = require("mongoose");
-var MONGO_URL = process.env.MONGO_URL || "mongodb://localhost/almarket";
+let user = 'almarket';
+let pass = "almPass123";
+//let MONGO_URL = `mongodb+srv://${user}:${pass}@cluster0.rjtmj.mongodb.net/almarket?retryWrites=true&w=majority`;
+let MONGO_URL = process.env.MONGO_URL || "mongodb://localhost/almarket";
 mongoose.connect(MONGO_URL);
 
 mongoose.connection.on("connected", function () {
