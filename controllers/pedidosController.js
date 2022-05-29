@@ -1,3 +1,4 @@
+const text = require("body-parser/lib/types/text");
 var Pedidos = require("../models/Pedidos");
 const Usuario = require("../models/Usuarios");
 
@@ -157,4 +158,36 @@ module.exports = {
         .catch(err => console.log(err));
     });
   },
+
+
+ /*mainModels: function (req, res) {
+    const fs = require('fs');
+    const fs2 = require('fs').promises;
+    //const fs = require('fs');
+    const fileNames = [];
+    let file1, file2;
+
+    fs.readdirSync('D:/Proyectos/almarket-frontend/mainModels').forEach(file => fileNames.push(file));
+    fileNames.map(f=>fs2.unlink("D:/Proyectos/almarket-frontend/mainModels/" + f));
+
+    Pedidos.find(function (err, pedidos) {
+      
+      file1= pedidos[0].fichero;
+      file2=pedidos[1].fichero;
+      fs.copyFile(`./uploads/${file1}`, `D:/Proyectos/almarket-frontend/mainModels/model1.stl`, (err) => {
+        if (err) {
+          console.log("Error Found:", err);
+        }} )
+      fs.copyFile(`./uploads/${file2}`, `D:/Proyectos/almarket-frontend/mainModels/model2.stl`,  (err) => {
+        if (err) {
+          console.log("Error Found:", err);
+        }} )
+
+        
+  
+        return res.json("Copiados modelos correctamente.");
+    }).sort({_id : -1});
+
+
+  },*/
 };

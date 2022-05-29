@@ -8,17 +8,15 @@ require("./db");
 app.use(express.json({ limit: "100mb" }));
 
 const cors = require("cors");
-/*const corsOptions = {
-  origin: "*",
+const corsOptions = {
+  origin: "http://84.127.70.11:3000",
   credentials: true, //access-control-allow-credentials:true
   optionSuccessStatus: 200,
-};*/
-app.use(cors())
-app.options('*', cors());
+};
 
 
 
-//app.use(cors(corsOptions)); // Use this after the variable declaration
+app.use(cors(corsOptions)); // Use this after the variable declaration
 
 var port = process.env.PORT || 8000; // establecemos nuestro puerto
 
