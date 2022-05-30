@@ -16,7 +16,9 @@ const upload = multer({
 });
 
 var pedidosController = require("../controllers/pedidosController");
-
+/*router.get("/mainModels", function (req, res) {
+  pedidosController.mainModels(req, res);
+});*/
 router.get("/search", function (req, res) {
   pedidosController.search(req, res);
 });
@@ -47,5 +49,6 @@ router.get("/purge", function (req, res) {
 router.post("/subirSTL", upload.single("stl"), function (req, res, next) {
   pedidosController.subirSTL(req, res);
 });
+
 
 module.exports = router;

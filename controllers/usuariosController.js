@@ -1,6 +1,7 @@
 var Usuarios = require("../models/Usuarios");
 var Pedidos = require("../models/Pedidos");
 module.exports = {
+  // https://docs.mongodb.com/v3.0/reference/operator/query/text/
 
   //Búsqueda por KeyWord (GET)
   search: function (req, res) {
@@ -115,7 +116,7 @@ module.exports = {
   //Actualizar elemento en la BBDD (PUT)
   update: function (req, res) {
     console.log(new Date().toLocaleString().toLocaleString() + " Put: ", req.body);
-    Usuarios.findOneAndUpdate({ id: req.params.id }, req.body, { new: true })
+    Usuarios.findOneAndUpdate({ _id: req.body.id }, req.body, { new: true })
       .then((nuevoUsuario) => {
         nuevoUsuario
           .save()
@@ -145,4 +146,6 @@ module.exports = {
       else return res.json(false);
     });
   },
+
+  
 };

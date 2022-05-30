@@ -2,21 +2,23 @@ var express = require("express"); //llamamos a Express
 var app = express();
 app.use(express.json());
 const path = require("path");
-app.use("/uploads", express.static(path.join("./", "uploads")));
+app.use("/uploads", express.static(path.join("D:\\Proyectos\\almarket-backend\\", "uploads")));
 require("./db");
 
 app.use(express.json({ limit: "100mb" }));
 
 const cors = require("cors");
 const corsOptions = {
-  origin: "*",
+  origin: "http://84.127.70.11:3000",
   credentials: true, //access-control-allow-credentials:true
   optionSuccessStatus: 200,
 };
 
+
+
 app.use(cors(corsOptions)); // Use this after the variable declaration
 
-var port = process.env.PORT || 8080; // establecemos nuestro puerto
+var port = process.env.PORT || 8000; // establecemos nuestro puerto
 
 // nuestra ruta irá en http://localhost:8080/api
 var router = require("./routes");
